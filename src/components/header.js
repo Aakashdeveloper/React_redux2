@@ -1,6 +1,20 @@
 import React,{Component} from 'react';
 
 class Header extends Component{
+
+    constructor(props){
+        super(props);
+
+        this.state ={
+            keyword:'',
+            title:'This Is React Demo'
+        }
+    }
+
+    inputChange(event){
+        console.log({keyword:event.target.value})
+    }
+
     render(){
 
         const styles ={
@@ -8,7 +22,9 @@ class Header extends Component{
                 background:'blue'
             }
         }
+
         return(
+            <header>
             <nav className="navbar navbar-inverse">
                 <div className="container-fluid">
                     <div className="navbar-header">
@@ -33,6 +49,11 @@ class Header extends Component{
                     </div>
                 </div>
             </nav>
+            <button className="btn btn-primary" onClick={()=> console.log("clicked")}>Click</button>
+            <input onChange={this.inputChange.bind(this)}/>
+            <div>{this.state.title}</div>
+            <div>{this.state.keyword}</div>
+            </header>
         )
     }
 }
