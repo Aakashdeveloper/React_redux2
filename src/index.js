@@ -3,23 +3,38 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import Header from './components/header';
-import JSON from './db.json'
+import JSON from './db.json';
+import NewsList from './components/news_list';
 
+class App extends Component{
+    constructor(props){
+        super(props);
 
-const App=() =>{
+        this.state={
+            news:JSON
+        }
+    }
+
+    render(){
+        return(
+            <div>
+                <Header/>
+                <NewsList news={this.state.news}/>
+            </div>
+        )
+    }
+}
+
+/*const App=() =>{
     console.log(JSON)
     return(
     <div>
         <Header />
-        <div className="container">
-           
-            <h1> This is index</h1>
-            <input/>
-        </div>
+        
     </div>
     )
     
-}
+}*/
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
