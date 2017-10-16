@@ -9,10 +9,14 @@ class Header extends Component{
             keyword:'',
             title:'This Is React Demo'
         }
+
+        console.log(props)
     }
 
     inputChange(event){
         console.log({keyword:event.target.value})
+        this.setState({keywords:event.target.value})
+        this.props.newsSearch(event.target.value)
     }
 
     render(){
